@@ -1,5 +1,6 @@
 package br.com.vitarts.workshopmongo.resources;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,40 +36,17 @@ public class PostResource {
 		return ResponseEntity.ok().body(list);
 	}
 
-	/*
-	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<PostDTO>> findAll() {
-		List<Post> list = service.findAll();
-		List<PostDTO> listDto = list.stream().map(x -> new PostDTO(x)).collect(Collectors.toList());
-		return ResponseEntity.ok().body(listDto);
-	}
-	
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Object> insert(@RequestBody PostDTO objDto) {
-		Post post = service.fromDTO(objDto);
-		post = service.insert(post);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(post.getId()).toUri();
-		return ResponseEntity.created(location).build();
-	}
+	@RequestMapping(value="/fullsearch", method=RequestMethod.GET)
+	public ResponseEntity<List<Post>> fullSearch(
+			@RequestParam(value="text", defaultValue="") String text,
+			@RequestParam(value="minDate", defaultValue="") String minDate,
+			@RequestParam(value="maxDate", defaultValue="") String maxDate) {
+		text = URL.decodeParam(text);
+		Date min = URL.convertDate(minDate, new Date(0L));
+		Date max = URL.convertDate(maxDate, new Date());
+		
+		List<Post> list = service.fullSearch(text, min, max);
 
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Object> delete(@PathVariable String id) {
-		service.delete(id);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().body(list);
 	}
-
-	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Object> update(@RequestBody PostDTO objDto, @PathVariable String id) {
-		Post post = service.fromDTO(objDto);
-		post.setId(id);
-		post = service.update(post);
-		return ResponseEntity.noContent().build();
-	}
-
-	@RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
-	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
-		Post post = service.findById(id);
-		return ResponseEntity.ok().body(post.getPosts());
-	}
-	*/
 }

@@ -1,5 +1,6 @@
 package br.com.vitarts.workshopmongo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,35 +27,9 @@ public class PostService {
 		return repo.searchTitle(text);
 	}
 	
-	/*
-	public Post fromDTO(PostDTO objDto) {
-		return new Post(objDto.getId(), objDto.getDate(), objDto.getTitle(), objDto.getBody, objDto.getAuthorDto());
-	}
-	*/
-	
-	public List<Post> findAll() {
-		return repo.findAll();
-	}
-
-	public Post insert(Post obj) {
-		return repo.insert(obj);
-	}
-	
-	public void delete(String id) {
-		findById(id);
-		repo.deleteById(id);
-	}
-	
-	public Post update(Post obj) {
-		Post newObj = repo.findById(obj.getId()).get();
-		updateData(newObj, obj);
-		return repo.save(newObj);
-	}
-
-	private void updateData(Post newObj, Post obj) {
-		newObj.setTitle(obj.getTitle());
-		newObj.setDate(obj.getDate());
-		newObj.setBody(obj.getBody());
-		newObj.setAuthor(obj.getAuthor());
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
+		// by he reason that our database were set to save dates with 00:00:00 time of the day.
+		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+		return repo.fullSearch(text, minDate, maxDate);
 	}
 }
