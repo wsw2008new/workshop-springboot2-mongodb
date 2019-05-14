@@ -1,4 +1,4 @@
-package br.com.vitarts.workshopmongo.services;
+package com.qez.job.services;
 
 import java.util.Date;
 import java.util.List;
@@ -7,9 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.vitarts.workshopmongo.domain.Post;
-import br.com.vitarts.workshopmongo.repository.PostRepository;
-import br.com.vitarts.workshopmongo.services.exception.ObjectNotFoundException;
+import com.qez.job.domain.Post;
+import com.qez.job.repository.PostRepository;
+import com.qez.job.services.exception.ObjectNotFoundException;
 
 @Service
 public class PostService {

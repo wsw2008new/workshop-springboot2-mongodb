@@ -1,8 +1,8 @@
-package br.com.vitarts.workshopmongo.dto;
+package com.qez.job.dto;
 
 import java.io.Serializable;
 
-import br.com.vitarts.workshopmongo.domain.User;
+import com.qez.job.domain.User;
 
 public class AuthorDTO implements Serializable {
 

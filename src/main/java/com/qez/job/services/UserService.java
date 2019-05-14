@@ -1,4 +1,4 @@
-package br.com.vitarts.workshopmongo.services;
+package com.qez.job.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.vitarts.workshopmongo.domain.User;
-import br.com.vitarts.workshopmongo.dto.UserDTO;
-import br.com.vitarts.workshopmongo.repository.UserRepository;
-import br.com.vitarts.workshopmongo.services.exception.ObjectNotFoundException;
+import com.qez.job.domain.User;
+import com.qez.job.dto.UserDTO;
+import com.qez.job.repository.UserRepository;
+import com.qez.job.services.exception.ObjectNotFoundException;
 
 @Service
 public class UserService {

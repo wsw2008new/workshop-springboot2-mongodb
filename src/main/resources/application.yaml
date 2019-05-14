@@ -1,0 +1,14 @@
+quartz:
+  enabled: true
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+#      username: user
+#      password: abc123
+      database: xxx
+      authenticationDatabase: admin
+
+server:
+  port: ${port:8081}

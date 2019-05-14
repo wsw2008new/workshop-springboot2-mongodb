@@ -1,4 +1,4 @@
-package br.com.vitarts.workshopmongo.dto;
+package com.qez.job.dto;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package br.com.vitarts.workshopmongo.services.exception;
+package com.qez.job.services.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 

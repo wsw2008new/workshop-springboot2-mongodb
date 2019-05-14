@@ -1,4 +1,4 @@
-package br.com.vitarts.workshopmongo.domain;
+package com.qez.job.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;

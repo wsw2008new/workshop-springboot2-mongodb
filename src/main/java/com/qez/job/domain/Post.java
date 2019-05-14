@@ -1,15 +1,14 @@
-package br.com.vitarts.workshopmongo.domain;
+package com.qez.job.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.qez.job.dto.AuthorDTO;
+import com.qez.job.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import br.com.vitarts.workshopmongo.dto.AuthorDTO;
-import br.com.vitarts.workshopmongo.dto.CommentDTO;
 
 @Document
 public class Post implements Serializable {

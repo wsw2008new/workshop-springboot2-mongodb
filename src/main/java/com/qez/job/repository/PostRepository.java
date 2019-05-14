@@ -1,4 +1,4 @@
-package br.com.vitarts.workshopmongo.repository;
+package com.qez.job.repository;
 
 import java.util.Date;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import br.com.vitarts.workshopmongo.domain.Post;
+import com.qez.job.domain.Post;
 
 @Repository
 public interface PostRepository extends MongoRepository<Post, String>{
